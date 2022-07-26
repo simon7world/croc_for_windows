@@ -1,2 +1,2 @@
-# croc_for_windows
+# Croc for Windows
 A Windows GUI based on Croc and Flutter
