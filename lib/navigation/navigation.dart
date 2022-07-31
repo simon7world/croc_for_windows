@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
+import '../generated/l10n.dart';
 
 class NavigationBox extends StatelessWidget {
   const NavigationBox({Key? key}) : super(key: key);
@@ -17,25 +18,31 @@ class NavigationBox extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           NavigationItem(
-            label: "Send",
+            label: S.of(context).send,
             icon: Icons.arrow_circle_up,
             onTap: () => _click("Send"),
           ),
           NavigationItem(
-            label: "Receive",
+            label: S.of(context).receive,
             icon: Icons.arrow_circle_down,
             onTap: () => _click("Receive"),
           ),
           NavigationItem(
-            label: "Settings",
+            label: S.of(context).settings,
             icon: Icons.widgets_outlined,
             onTap: () => _click("Settings"),
           ),
           NavigationItem(
-            label: "About",
+            label: S.of(context).about,
             icon: Icons.account_circle_outlined,
             onTap: () => _click("About"),
           ),
+          Switch(
+            value: true,
+            onChanged: (value) {
+              print(value);
+            },
+          )
         ],
       ),
     );
