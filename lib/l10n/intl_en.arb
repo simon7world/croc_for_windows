@@ -2,5 +2,9 @@
   "send": "Send",
   "receive": "Receive",
   "settings": "Settings",
-  "about": "About"
+  "settings_language": "Language",
+  "about": "About",
+  "about_author": "Author",
+  "about_version": "Version",
+  "about_github": "GitHub"
 }

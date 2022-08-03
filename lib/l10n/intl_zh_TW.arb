@@ -2,5 +2,9 @@
   "send": "發送",
   "receive": "接收",
   "settings": "設置",
-  "about": "關於"
+  "settings_language": "語言",
+  "about": "關於",
+  "about_author": "作者",
+  "about_version": "版本",
+  "about_github": "GitHub"
 }

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'const.dart';
 import 'generated/l10n.dart';
 import 'navigation/navigation.dart';
+import 'work/work.dart';
 
 void main() => runApp(const CrocApp());
 
 class CrocApp extends StatefulWidget {
   const CrocApp({Key? key}) : super(key: key);
-
-  final bool dark = true;
 
   @override
   State<CrocApp> createState() => _CrocAppState();
@@ -18,22 +18,43 @@ class CrocApp extends StatefulWidget {
 class _CrocAppState extends State<CrocApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      localizationsDelegates: const [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      // supportedLocales: S.delegate.supportedLocales,
-      title: 'Croc for Windows',
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
-      ),
-      darkTheme: ThemeData.dark(),
-      themeMode: widget.dark ? ThemeMode.dark : ThemeMode.light,
-      home: const MainPage(),
+    return ValueListenableBuilder(
+      valueListenable: LightTheme,
+      builder: (context, bool light, child) {
+        return ValueListenableBuilder(
+          valueListenable: AppLang,
+          builder: (context, Lang lang, child) {
+            return MaterialApp(
+              localizationsDelegates: const [
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+              ],
+              supportedLocales: S.delegate.supportedLocales,
+              locale: lang.locale,
+              title: 'Croc for Windows',
+              theme: ThemeData(
+                brightness: Brightness.light,
+                primarySwatch: Colors.teal,
+                fontFamily: "微软雅黑,Microsoft YaHei",
+              ),
+              darkTheme: ThemeData(
+                brightness: Brightness.dark,
+                fontFamily: "微软雅黑,Microsoft YaHei",
+              ),
+              themeMode: light ? ThemeMode.light : ThemeMode.dark,
+              home: const MainPage(),
+            );
+          },
+        );
+      },
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 }
 
@@ -46,7 +67,7 @@ class MainPage extends StatelessWidget {
       child: Row(
         children: const <Widget>[
           NavigationBox(),
-          // WorkBox(),
+          WorkBox(),
         ],
       ),
     );

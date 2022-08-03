@@ -80,11 +80,51 @@ class S {
     );
   }
 
+  /// `Language`
+  String get settings_language {
+    return Intl.message(
+      'Language',
+      name: 'settings_language',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `About`
   String get about {
     return Intl.message(
       'About',
       name: 'about',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Author`
+  String get about_author {
+    return Intl.message(
+      'Author',
+      name: 'about_author',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Version`
+  String get about_version {
+    return Intl.message(
+      'Version',
+      name: 'about_version',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `GitHub`
+  String get about_github {
+    return Intl.message(
+      'GitHub',
+      name: 'about_github',
       desc: '',
       args: [],
     );

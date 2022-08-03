@@ -1,13 +1,27 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import '../const.dart';
 import '../generated/l10n.dart';
 
 class NavigationBox extends StatelessWidget {
   const NavigationBox({Key? key}) : super(key: key);
 
   void _click(String type) {
-    print("click $type");
+    switch (type) {
+      case "send":
+        WorkPageController.animateToPage(0, duration: const Duration(milliseconds: 250), curve: Curves.ease);
+        break;
+      case "receive":
+        WorkPageController.animateToPage(1, duration: const Duration(milliseconds: 250), curve: Curves.ease);
+        break;
+      case "settings":
+        WorkPageController.animateToPage(2, duration: const Duration(milliseconds: 250), curve: Curves.ease);
+        break;
+      case "about":
+        WorkPageController.animateToPage(3, duration: const Duration(milliseconds: 250), curve: Curves.ease);
+        break;
+    }
   }
 
   @override
@@ -20,27 +34,27 @@ class NavigationBox extends StatelessWidget {
           NavigationItem(
             label: S.of(context).send,
             icon: Icons.arrow_circle_up,
-            onTap: () => _click("Send"),
+            onTap: () => _click("send"),
           ),
           NavigationItem(
             label: S.of(context).receive,
             icon: Icons.arrow_circle_down,
-            onTap: () => _click("Receive"),
+            onTap: () => _click("receive"),
           ),
           NavigationItem(
             label: S.of(context).settings,
             icon: Icons.widgets_outlined,
-            onTap: () => _click("Settings"),
+            onTap: () => _click("settings"),
           ),
           NavigationItem(
             label: S.of(context).about,
             icon: Icons.account_circle_outlined,
-            onTap: () => _click("About"),
+            onTap: () => _click("about"),
           ),
           Switch(
-            value: true,
+            value: LightTheme.value,
             onChanged: (value) {
-              print(value);
+              LightTheme.value = value;
             },
           )
         ],
@@ -107,5 +121,10 @@ class _NavigationItemState extends State<NavigationItem> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 }
