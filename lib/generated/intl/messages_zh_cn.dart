@@ -29,6 +29,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "receive": MessageLookupByLibrary.simpleMessage("接收"),
         "send": MessageLookupByLibrary.simpleMessage("发送"),
         "settings": MessageLookupByLibrary.simpleMessage("设置"),
-        "settings_language": MessageLookupByLibrary.simpleMessage("语言")
+        "settings_defaultCode": MessageLookupByLibrary.simpleMessage("默认密码"),
+        "settings_encryptionCurve":
+            MessageLookupByLibrary.simpleMessage("加密曲线"),
+        "settings_language": MessageLookupByLibrary.simpleMessage("语言"),
+        "settings_relayServer": MessageLookupByLibrary.simpleMessage("中继服务器")
       };
 }

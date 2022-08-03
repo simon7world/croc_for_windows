@@ -29,6 +29,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "receive": MessageLookupByLibrary.simpleMessage("Receive"),
         "send": MessageLookupByLibrary.simpleMessage("Send"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
-        "settings_language": MessageLookupByLibrary.simpleMessage("Language")
+        "settings_defaultCode":
+            MessageLookupByLibrary.simpleMessage("Default Code"),
+        "settings_encryptionCurve":
+            MessageLookupByLibrary.simpleMessage("Encryption Curve"),
+        "settings_language": MessageLookupByLibrary.simpleMessage("Language"),
+        "settings_relayServer":
+            MessageLookupByLibrary.simpleMessage("Relay Server")
       };
 }

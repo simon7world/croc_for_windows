@@ -10,7 +10,7 @@ class SpaceBetweenItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 500,
-      height: 50,
+      height: 70,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -55,7 +55,7 @@ class SpaceBetweenTextItem extends StatelessWidget {
 
     return SizedBox(
       width: 500,
-      height: 50,
+      height: 70,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[

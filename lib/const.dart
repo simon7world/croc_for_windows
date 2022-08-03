@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 final ValueNotifier<bool> LightTheme = ValueNotifier(false);
 final ValueNotifier<Lang> AppLang = ValueNotifier(Lang.EN);
+final ValueNotifier<CodeCurve> AppCodeCurve = ValueNotifier(CodeCurve.P256);
 final PageController WorkPageController = PageController(initialPage: 0);
 
 enum Lang {
@@ -13,7 +14,16 @@ enum Lang {
 
   final String label;
   final Locale locale;
+}
 
-  String get langLabel => label;
-  Locale get langLocale => locale;
+enum CodeCurve {
+  P256(label: "P-256", code: "p256"),
+  P348(label: "P-348", code: "p348"),
+  P521(label: "P-521", code: "p521"),
+  SIEC(label: "SIEC", code: "siec");
+
+  const CodeCurve({required this.label, required this.code});
+
+  final String label;
+  final String code;
 }

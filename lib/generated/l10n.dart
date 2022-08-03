@@ -80,6 +80,36 @@ class S {
     );
   }
 
+  /// `Default Code`
+  String get settings_defaultCode {
+    return Intl.message(
+      'Default Code',
+      name: 'settings_defaultCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Encryption Curve`
+  String get settings_encryptionCurve {
+    return Intl.message(
+      'Encryption Curve',
+      name: 'settings_encryptionCurve',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Relay Server`
+  String get settings_relayServer {
+    return Intl.message(
+      'Relay Server',
+      name: 'settings_relayServer',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Language`
   String get settings_language {
     return Intl.message(

@@ -21,7 +21,7 @@ class AboutPage extends StatelessWidget {
         Image.asset("images/croc_win.png", width: 550),
         SpaceBetweenTextItem(
           label: S.of(context).about_author,
-          text: "Simon Chang",
+          text: "Simon P. Chang",
         ),
         SpaceBetweenTextItem(
           label: S.of(context).about_version,
