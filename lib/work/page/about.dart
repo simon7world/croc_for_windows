@@ -18,7 +18,7 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.fromLTRB(0, 20, 0, 10),
@@ -41,6 +41,9 @@ class AboutPage extends StatelessWidget {
           label: S.of(context).about_c,
           text: _c,
           onTap: () => _launchUrl("https://$_c"),
+        ),
+        const Padding(
+          padding: EdgeInsets.fromLTRB(0, 0, 0, 40),
         ),
       ],
     );
