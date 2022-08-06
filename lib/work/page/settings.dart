@@ -4,6 +4,7 @@ import '../../constant/const.dart';
 import '../../constant/enums.dart';
 import '../../generated/l10n.dart';
 import 'item.dart';
+import 'logo.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -13,10 +14,7 @@ class SettingsPage extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.fromLTRB(0, 20, 0, 10),
-          child: Image.asset("images/croc_win.png", width: 400),
-        ),
+        const Logo(),
         SpaceBetweenItem(
           label: S.of(context).settings_defaultCode,
           value: Tooltip(

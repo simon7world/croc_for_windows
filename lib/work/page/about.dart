@@ -4,6 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../constant/const.dart';
 import '../../generated/l10n.dart';
 import 'item.dart';
+import 'logo.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);
@@ -20,10 +21,7 @@ class AboutPage extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.fromLTRB(0, 20, 0, 10),
-          child: Image.asset("images/croc_win.png", width: 400),
-        ),
+        const Logo(),
         SpaceBetweenTextItem(
           label: S.of(context).about_author,
           text: "Simon P. Chang",
