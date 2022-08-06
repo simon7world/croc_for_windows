@@ -34,7 +34,12 @@ class NavigationBox extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           WindowTitleBarBox(
-            child: MoveWindow(),
+            child: MoveWindow(
+              child: const Align(
+                alignment: Alignment.center,
+                child: Text("$AppShortName v$AppVersion"),
+              ),
+            ),
           ),
           NavigationItem(
             label: S.of(context).send,
@@ -57,9 +62,10 @@ class NavigationBox extends StatelessWidget {
             onTap: () => _click("about"),
           ),
           Switch(
-            value: LightTheme.value,
+            value: AppLightTheme.value,
             onChanged: (value) {
-              LightTheme.value = value;
+              AppLightTheme.value = value;
+              Config.overwrite();
             },
           )
         ],
@@ -80,8 +86,8 @@ class NavigationItem extends StatefulWidget {
 }
 
 class _NavigationItemState extends State<NavigationItem> {
-  var _hover = false;
   late Color _bgHoverColor;
+  var _hover = false;
 
   void _changeBgColor(event) {
     setState(() {

@@ -1,5 +1,3 @@
-
-
 import 'dart:ui';
 
 enum Lang {
@@ -12,6 +10,10 @@ enum Lang {
   final String code;
   final String label;
   final Locale locale;
+
+  static Lang findByCode(String code) {
+    return Lang.values.firstWhere((l) => l.code == code, orElse: () => EN);
+  }
 }
 
 enum CodeCurve {
@@ -24,4 +26,8 @@ enum CodeCurve {
 
   final String label;
   final String code;
+
+  static CodeCurve findByCode(String code) {
+    return CodeCurve.values.firstWhere((cc) => cc.code == code, orElse: () => P256);
+  }
 }

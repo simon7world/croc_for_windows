@@ -8,12 +8,14 @@ import 'generated/l10n.dart';
 import 'navigation/navigation.dart';
 import 'work/work.dart';
 
-void main() {
+void main() async {
+  await Config.load();
+
   runApp(const CrocApp());
+
   doWhenWindowReady(() {
-    const initSize = Size(1000, 600);
-    appWindow.size = initSize;
-    appWindow.minSize =initSize;
+    appWindow.size = appWindow.minSize = const Size(900, 600);
+    appWindow.title = "$AppName($AppShortName)";
     appWindow.show();
   });
 }
@@ -29,7 +31,7 @@ class _CrocAppState extends State<CrocApp> {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
-      valueListenable: LightTheme,
+      valueListenable: AppLightTheme,
       builder: (context, bool light, child) {
         return ValueListenableBuilder(
           valueListenable: AppLang,
@@ -44,15 +46,15 @@ class _CrocAppState extends State<CrocApp> {
               ],
               supportedLocales: S.delegate.supportedLocales,
               locale: lang.locale,
-              title: 'Croc for Windows',
+              title: AppName,
               theme: ThemeData(
                 brightness: Brightness.light,
                 primarySwatch: Colors.teal,
-                fontFamily: "微软雅黑,Microsoft YaHei",
+                fontFamily: AppFontFamily,
               ),
               darkTheme: ThemeData(
                 brightness: Brightness.dark,
-                fontFamily: "微软雅黑,Microsoft YaHei",
+                fontFamily: AppFontFamily,
               ),
               themeMode: light ? ThemeMode.light : ThemeMode.dark,
               home: const MainPage(),

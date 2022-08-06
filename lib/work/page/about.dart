@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../constant/const.dart';
 import '../../generated/l10n.dart';
 import 'item.dart';
 
@@ -29,7 +30,7 @@ class AboutPage extends StatelessWidget {
         ),
         SpaceBetweenTextItem(
           label: S.of(context).about_version,
-          text: "v1.0.0",
+          text: AppVersion,
         ),
         SpaceBetweenTextItem(
           label: S.of(context).about_cfw,

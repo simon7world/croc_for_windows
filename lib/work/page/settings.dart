@@ -1,8 +1,4 @@
-import 'dart:io';
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
 
 import '../../constant/const.dart';
 import '../../constant/enums.dart';
@@ -14,26 +10,6 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future<String> _abc() async {
-      final doc = await getApplicationDocumentsDirectory();
-      final dir = Directory('${doc.path}\\Croc4Windows');
-      if (!dir.existsSync()) {
-        dir.createSync(recursive: true);
-      }
-      final config = File('${dir.path}\\config.json');
-      if (!config.existsSync()) {
-        config.createSync();
-      }
-
-      config.writeAsStringSync(jsonEncode(Config()), flush: true);
-
-      var newConfig = Config.fromJson(jsonDecode(config.readAsStringSync()));
-      print(newConfig.light);
-      print(newConfig.lang);
-
-      return dir.path;
-    }
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
@@ -90,8 +66,8 @@ class SettingsPage extends StatelessWidget {
                     ),
                     onChanged: (CodeCurve? curve) {
                       if (curve != null) {
-                        _abc();
                         AppCodeCurve.value = curve;
+                        Config.overwrite();
                       }
                     },
                     items: CodeCurve.values.map<DropdownMenuItem<CodeCurve>>((CodeCurve curve) {
@@ -115,6 +91,7 @@ class SettingsPage extends StatelessWidget {
               onChanged: (Lang? lang) {
                 if (lang != null) {
                   AppLang.value = lang;
+                  Config.overwrite();
                 }
               },
               items: Lang.values.map<DropdownMenuItem<Lang>>((Lang lang) {
