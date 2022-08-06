@@ -37,7 +37,6 @@ class _CrocAppState extends State<CrocApp> {
           valueListenable: AppLang,
           builder: (context, Lang lang, child) {
             return MaterialApp(
-              debugShowCheckedModeBanner: false,
               localizationsDelegates: const [
                 S.delegate,
                 GlobalMaterialLocalizations.delegate,

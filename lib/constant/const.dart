@@ -10,7 +10,7 @@ import 'enums.dart';
 const AppVersion = "1.0.0";
 const AppName = "Croc for Windows";
 const AppShortName = "CFW";
-const AppFontFamily = "微软雅黑,Microsoft YaHei";
+const AppFontFamily = "Microsoft YaHei";
 
 final ValueNotifier<bool> AppLightTheme = ValueNotifier(false);
 final ValueNotifier<Lang> AppLang = ValueNotifier(Lang.EN);
