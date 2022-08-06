@@ -1,8 +1,9 @@
-import 'package:croc_for_windows/work/page/settings.dart';
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../const.dart';
-import '../work/page/about.dart';
+import '../constant/const.dart';
+import 'page/about.dart';
+import 'page/settings.dart';
 
 class WorkBox extends StatelessWidget {
   const WorkBox({Key? key}) : super(key: key);
@@ -10,17 +11,39 @@ class WorkBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: PageView(
-        controller: WorkPageController,
+      child: Column(
         children: <Widget>[
-          Container(
-            child: Text("aaaaaaaaa"),
+          WindowTitleBarBox(
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: MoveWindow(),
+                ),
+                Row(
+                  children: <Widget>[
+                    MinimizeWindowButton(),
+                    MaximizeWindowButton(),
+                    CloseWindowButton(),
+                  ],
+                ),
+              ],
+            ),
           ),
-          Container(
-            child: Text("bbbbbbbbbbbb"),
+          Expanded(
+            child: PageView(
+              controller: WorkPageController,
+              children: <Widget>[
+                Container(
+                  child: Text("aaaaaaaaa"),
+                ),
+                Container(
+                  child: Text("bbbbbbbbbbbb"),
+                ),
+                const SettingsPage(),
+                const AboutPage(),
+              ],
+            ),
           ),
-          const SettingsPage(),
-          const AboutPage(),
         ],
       ),
     );

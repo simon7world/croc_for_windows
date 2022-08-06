@@ -24,8 +24,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("关于"),
         "about_author": MessageLookupByLibrary.simpleMessage("作者"),
-        "about_github": MessageLookupByLibrary.simpleMessage("GitHub"),
-        "about_version": MessageLookupByLibrary.simpleMessage("版本"),
+        "about_c": MessageLookupByLibrary.simpleMessage("Croc"),
+        "about_cfw": MessageLookupByLibrary.simpleMessage("CFW"),
+        "about_version": MessageLookupByLibrary.simpleMessage("版本号"),
         "receive": MessageLookupByLibrary.simpleMessage("接收"),
         "send": MessageLookupByLibrary.simpleMessage("发送"),
         "settings": MessageLookupByLibrary.simpleMessage("设置"),

@@ -1,12 +1,22 @@
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'const.dart';
+import 'constant/const.dart';
+import 'constant/enums.dart';
 import 'generated/l10n.dart';
 import 'navigation/navigation.dart';
 import 'work/work.dart';
 
-void main() => runApp(const CrocApp());
+void main() {
+  runApp(const CrocApp());
+  doWhenWindowReady(() {
+    const initSize = Size(1000, 600);
+    appWindow.size = initSize;
+    appWindow.minSize =initSize;
+    appWindow.show();
+  });
+}
 
 class CrocApp extends StatefulWidget {
   const CrocApp({Key? key}) : super(key: key);
@@ -25,6 +35,7 @@ class _CrocAppState extends State<CrocApp> {
           valueListenable: AppLang,
           builder: (context, Lang lang, child) {
             return MaterialApp(
+              debugShowCheckedModeBanner: false,
               localizationsDelegates: const [
                 S.delegate,
                 GlobalMaterialLocalizations.delegate,
@@ -64,11 +75,15 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: Row(
-        children: const <Widget>[
-          NavigationBox(),
-          WorkBox(),
-        ],
+      child: WindowBorder(
+        width: 3,
+        color: Theme.of(context).primaryColor,
+        child: Row(
+          children: const <Widget>[
+            NavigationBox(),
+            WorkBox(),
+          ],
+        ),
       ),
     );
   }

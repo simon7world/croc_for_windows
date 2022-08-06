@@ -150,11 +150,21 @@ class S {
     );
   }
 
-  /// `GitHub`
-  String get about_github {
+  /// `CFW`
+  String get about_cfw {
     return Intl.message(
-      'GitHub',
-      name: 'about_github',
+      'CFW',
+      name: 'about_cfw',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Croc`
+  String get about_c {
+    return Intl.message(
+      'Croc',
+      name: 'about_c',
       desc: '',
       args: [],
     );

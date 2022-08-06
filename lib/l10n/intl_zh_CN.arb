@@ -8,6 +8,7 @@
   "settings_language": "语言",
   "about": "关于",
   "about_author": "作者",
-  "about_version": "版本",
-  "about_github": "GitHub"
+  "about_version": "版本号",
+  "about_cfw": "CFW",
+  "about_c": "Croc"
 }

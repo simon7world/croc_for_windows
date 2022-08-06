@@ -1,7 +1,8 @@
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../const.dart';
+import '../constant/const.dart';
 import '../generated/l10n.dart';
 
 class NavigationBox extends StatelessWidget {
@@ -27,10 +28,14 @@ class NavigationBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 200,
       color: Theme.of(context).backgroundColor,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
+          WindowTitleBarBox(
+            child: MoveWindow(),
+          ),
           NavigationItem(
             label: S.of(context).send,
             icon: Icons.arrow_circle_up,
@@ -100,7 +105,6 @@ class _NavigationItemState extends State<NavigationItem> {
         child: GestureDetector(
           onTap: widget.onTap,
           child: Container(
-            width: 200,
             color: _hover ? _bgHoverColor : null,
             child: Row(
               children: <Widget>[
