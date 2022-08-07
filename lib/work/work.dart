@@ -1,5 +1,5 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../constant/const.dart';
 import 'page/about.dart';
@@ -10,6 +10,21 @@ class WorkBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mbColors = WindowButtonColors(
+      iconNormal: Theme.of(context).highlightColor,
+      mouseOver: Theme.of(context).backgroundColor,
+      mouseDown: Theme.of(context).primaryColor,
+      iconMouseOver: Colors.white,
+      iconMouseDown: Colors.white,
+    );
+    final cbColors = WindowButtonColors(
+      iconNormal: Theme.of(context).highlightColor,
+      mouseOver: Colors.redAccent,
+      mouseDown: Colors.red,
+      iconMouseOver: Colors.white,
+      iconMouseDown: Colors.white,
+    );
+
     return Expanded(
       child: Column(
         children: <Widget>[
@@ -21,9 +36,9 @@ class WorkBox extends StatelessWidget {
                 ),
                 Row(
                   children: <Widget>[
-                    MinimizeWindowButton(),
-                    MaximizeWindowButton(),
-                    CloseWindowButton(),
+                    MinimizeWindowButton(colors: mbColors),
+                    MaximizeWindowButton(colors: mbColors),
+                    CloseWindowButton(colors: cbColors),
                   ],
                 ),
               ],

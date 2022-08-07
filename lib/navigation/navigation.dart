@@ -86,8 +86,7 @@ class NavigationItem extends StatefulWidget {
 }
 
 class _NavigationItemState extends State<NavigationItem> {
-  late Color _bgHoverColor;
-  var _hover = false;
+  late bool _hover;
 
   void _changeBgColor(event) {
     setState(() {
@@ -100,9 +99,14 @@ class _NavigationItemState extends State<NavigationItem> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    _bgHoverColor = Theme.of(context).primaryColor;
+  void initState() {
+    _hover = false;
 
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Expanded(
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
@@ -111,7 +115,7 @@ class _NavigationItemState extends State<NavigationItem> {
         child: GestureDetector(
           onTap: widget.onTap,
           child: Container(
-            color: _hover ? _bgHoverColor : null,
+            color: _hover ? Theme.of(context).primaryColor : null,
             child: Row(
               children: <Widget>[
                 Padding(

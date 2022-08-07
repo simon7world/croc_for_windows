@@ -15,10 +15,10 @@ const AppFontFamily = "Microsoft YaHei";
 final ValueNotifier<bool> AppLightTheme = ValueNotifier(false);
 final ValueNotifier<Lang> AppLang = ValueNotifier(Lang.EN);
 final ValueNotifier<CodeCurve> AppCodeCurve = ValueNotifier(CodeCurve.P256);
-final ValueNotifier<String> AppDefaultCode = ValueNotifier("");
-final ValueNotifier<String> AppRelayServer = ValueNotifier("");
 
 final PageController WorkPageController = PageController(initialPage: 0);
+final TextEditingController DefaultCodeTextEditingController = TextEditingController(text: "");
+final TextEditingController RelayServerTextEditingController = TextEditingController(text: "");
 
 class Config {
   Config();
@@ -30,8 +30,8 @@ class Config {
         "light": AppLightTheme.value,
         "lang": AppLang.value.code,
         "curve": AppCodeCurve.value.code,
-        "code": AppDefaultCode.value,
-        "relay": AppRelayServer.value,
+        "code": DefaultCodeTextEditingController.text,
+        "relay": RelayServerTextEditingController.text,
       };
 
   Config.fromJson(final Map<String, dynamic> json)
@@ -56,12 +56,12 @@ class Config {
   }
 
   static Future<void> load() async {
-    var config = Config.fromJson(convert.jsonDecode((await _find()).readAsStringSync()));
+    final config = Config.fromJson(convert.jsonDecode((await _find()).readAsStringSync()));
     AppLightTheme.value = config._light;
     AppLang.value = Lang.findByCode(config._lang);
     AppCodeCurve.value = CodeCurve.findByCode(config._curve);
-    AppDefaultCode.value = config._code;
-    AppRelayServer.value = config._relay;
+    DefaultCodeTextEditingController.text = config._code;
+    RelayServerTextEditingController.text = config._relay;
   }
 
   static Future<void> overwrite() async {

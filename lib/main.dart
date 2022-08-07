@@ -29,6 +29,11 @@ class CrocApp extends StatefulWidget {
 
 class _CrocAppState extends State<CrocApp> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: AppLightTheme,

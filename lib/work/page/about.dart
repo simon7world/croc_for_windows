@@ -9,8 +9,8 @@ import 'logo.dart';
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);
 
-  final String _cfw = "github.com/simon7world/croc_for_windows";
-  final String _c = "github.com/schollz/croc";
+  static const String _cfw = "github.com/simon7world/croc_for_windows";
+  static const String _c = "github.com/schollz/croc";
 
   void _launchUrl(String url) {
     launchUrl(Uri.parse(url));

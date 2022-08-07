@@ -11,40 +11,50 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final codeFocus = FocusNode();
+    final relayFocus = FocusNode();
+
+    codeFocus.addListener(() {
+      if (!codeFocus.hasFocus) {
+        Config.overwrite();
+      }
+    });
+    relayFocus.addListener(() {
+      if (!relayFocus.hasFocus) {
+        Config.overwrite();
+      }
+    });
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         const Logo(),
         SpaceBetweenItem(
           label: S.of(context).settings_defaultCode,
-          value: Tooltip(
-            message: "222222222",
-            verticalOffset: -45,
-            child: SizedBox(
-              width: 200,
-              height: 60,
-              child: TextField(
-                maxLength: 32,
-                decoration: InputDecoration(
-                  border: UnderlineInputBorder(),
-                ),
+          value: SizedBox(
+            width: 200,
+            height: 60,
+            child: TextField(
+              focusNode: codeFocus,
+              controller: DefaultCodeTextEditingController,
+              maxLength: 32,
+              decoration: const InputDecoration(
+                border: UnderlineInputBorder(),
               ),
             ),
           ),
         ),
         SpaceBetweenItem(
           label: S.of(context).settings_relayServer,
-          value: Tooltip(
-            message: "111111111",
-            verticalOffset: -45,
-            child: SizedBox(
-              width: 200,
-              height: 60,
-              child: TextField(
-                maxLength: 128,
-                decoration: InputDecoration(
-                  border: UnderlineInputBorder(),
-                ),
+          value: SizedBox(
+            width: 200,
+            height: 60,
+            child: TextField(
+              focusNode: relayFocus,
+              controller: RelayServerTextEditingController,
+              maxLength: 128,
+              decoration: const InputDecoration(
+                border: UnderlineInputBorder(),
               ),
             ),
           ),
