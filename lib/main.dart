@@ -41,28 +41,33 @@ class _CrocAppState extends State<CrocApp> {
         return ValueListenableBuilder(
           valueListenable: AppLang,
           builder: (context, Lang lang, child) {
-            return MaterialApp(
-              localizationsDelegates: const [
-                S.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-              ],
-              supportedLocales: S.delegate.supportedLocales,
-              locale: lang.locale,
-              title: AppName,
-              theme: ThemeData(
-                brightness: Brightness.light,
-                primarySwatch: Colors.teal,
-                fontFamily: AppFontFamily,
-              ),
-              darkTheme: ThemeData(
-                brightness: Brightness.dark,
-                fontFamily: AppFontFamily,
-              ),
-              themeMode: light ? ThemeMode.light : ThemeMode.dark,
-              home: const MainPage(),
-            );
+            return ValueListenableBuilder(
+                valueListenable: AppPrimaryColor,
+                builder: (context, Color color, child) {
+                  return MaterialApp(
+                    localizationsDelegates: const [
+                      S.delegate,
+                      GlobalMaterialLocalizations.delegate,
+                      GlobalCupertinoLocalizations.delegate,
+                      GlobalWidgetsLocalizations.delegate,
+                    ],
+                    supportedLocales: S.delegate.supportedLocales,
+                    locale: lang.locale,
+                    title: AppName,
+                    theme: ThemeData(
+                      brightness: Brightness.light,
+                      primarySwatch: color.color,
+                      fontFamily: AppFontFamily,
+                    ),
+                    darkTheme: ThemeData(
+                      brightness: Brightness.dark,
+                      primarySwatch: color.color,
+                      fontFamily: AppFontFamily,
+                    ),
+                    themeMode: light ? ThemeMode.light : ThemeMode.dark,
+                    home: const MainPage(),
+                  );
+                });
           },
         );
       },

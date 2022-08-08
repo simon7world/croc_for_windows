@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settings_encryptionCurve":
             MessageLookupByLibrary.simpleMessage("加密曲線"),
         "settings_language": MessageLookupByLibrary.simpleMessage("語言"),
+        "settings_primaryColor": MessageLookupByLibrary.simpleMessage("主色彩"),
         "settings_relayServer": MessageLookupByLibrary.simpleMessage("中繼伺服器")
       };
 }

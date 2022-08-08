@@ -5,6 +5,7 @@
   "settings_defaultCode": "Default Code",
   "settings_encryptionCurve": "Encryption Curve",
   "settings_relayServer": "Relay Server",
+  "settings_primaryColor": "Primary Color",
   "settings_language": "Language",
   "about": "About",
   "about_author": "Author",

@@ -35,6 +35,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "settings_encryptionCurve":
             MessageLookupByLibrary.simpleMessage("Encryption Curve"),
         "settings_language": MessageLookupByLibrary.simpleMessage("Language"),
+        "settings_primaryColor":
+            MessageLookupByLibrary.simpleMessage("Primary Color"),
         "settings_relayServer":
             MessageLookupByLibrary.simpleMessage("Relay Server")
       };

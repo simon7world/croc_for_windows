@@ -5,6 +5,7 @@
   "settings_defaultCode": "默认密码",
   "settings_encryptionCurve": "加密曲线",
   "settings_relayServer": "中继服务器",
+  "settings_primaryColor": "主色调",
   "settings_language": "语言",
   "about": "关于",
   "about_author": "作者",

@@ -110,6 +110,16 @@ class S {
     );
   }
 
+  /// `Primary Color`
+  String get settings_primaryColor {
+    return Intl.message(
+      'Primary Color',
+      name: 'settings_primaryColor',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Language`
   String get settings_language {
     return Intl.message(

@@ -30,35 +30,33 @@ class SettingsPage extends StatelessWidget {
       children: <Widget>[
         const Logo(),
         SpaceBetweenItem(
-          label: S.of(context).settings_defaultCode,
-          value: SizedBox(
-            width: 200,
-            height: 60,
-            child: TextField(
-              focusNode: codeFocus,
-              controller: DefaultCodeTextEditingController,
-              maxLength: 32,
-              decoration: const InputDecoration(
-                border: UnderlineInputBorder(),
+            label: S.of(context).settings_defaultCode,
+            value: SizedBox(
+              width: 200,
+              height: 60,
+              child: TextField(
+                focusNode: codeFocus,
+                controller: DefaultCodeTextEditingController,
+                maxLength: 32,
+                decoration: const InputDecoration(
+                  border: UnderlineInputBorder(),
+                ),
               ),
-            ),
-          ),
-        ),
+            )),
         SpaceBetweenItem(
-          label: S.of(context).settings_relayServer,
-          value: SizedBox(
-            width: 200,
-            height: 60,
-            child: TextField(
-              focusNode: relayFocus,
-              controller: RelayServerTextEditingController,
-              maxLength: 128,
-              decoration: const InputDecoration(
-                border: UnderlineInputBorder(),
+            label: S.of(context).settings_relayServer,
+            value: SizedBox(
+              width: 200,
+              height: 60,
+              child: TextField(
+                focusNode: relayFocus,
+                controller: RelayServerTextEditingController,
+                maxLength: 128,
+                decoration: const InputDecoration(
+                  border: UnderlineInputBorder(),
+                ),
               ),
-            ),
-          ),
-        ),
+            )),
         SpaceBetweenItem(
             label: S.of(context).settings_encryptionCurve,
             value: ValueListenableBuilder(
@@ -67,7 +65,7 @@ class SettingsPage extends StatelessWidget {
                   return DropdownButton<CodeCurve>(
                     alignment: Alignment.center,
                     elevation: 9,
-                    value: AppCodeCurve.value,
+                    value: curve,
                     underline: Container(
                       height: 1,
                       color: Theme.of(context).hintColor,
@@ -106,6 +104,29 @@ class SettingsPage extends StatelessWidget {
                 return DropdownMenuItem<Lang>(
                   value: lang,
                   child: Text(lang.label),
+                );
+              }).toList(),
+            )),
+        SpaceBetweenItem(
+            label: S.of(context).settings_primaryColor,
+            value: DropdownButton<Color>(
+              alignment: Alignment.center,
+              elevation: 9,
+              value: AppPrimaryColor.value,
+              underline: Container(
+                height: 1,
+                color: Theme.of(context).hintColor,
+              ),
+              onChanged: (Color? color) {
+                if (color != null) {
+                  AppPrimaryColor.value = color;
+                  Config.overwrite();
+                }
+              },
+              items: Color.values.map<DropdownMenuItem<Color>>((Color color) {
+                return DropdownMenuItem<Color>(
+                  value: color,
+                  child: Text(color.label),
                 );
               }).toList(),
             )),

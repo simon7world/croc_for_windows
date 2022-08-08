@@ -1,7 +1,7 @@
 import 'dart:convert' as convert;
 import 'dart:io' as io;
 
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
 
@@ -13,6 +13,7 @@ const AppShortName = "CFW";
 const AppFontFamily = "Microsoft YaHei";
 
 final ValueNotifier<bool> AppLightTheme = ValueNotifier(false);
+final ValueNotifier<Color> AppPrimaryColor = ValueNotifier(Color.TEAL);
 final ValueNotifier<Lang> AppLang = ValueNotifier(Lang.EN);
 final ValueNotifier<CodeCurve> AppCodeCurve = ValueNotifier(CodeCurve.P256);
 
@@ -24,10 +25,11 @@ class Config {
   Config();
 
   late bool _light;
-  late String _lang, _curve, _code, _relay;
+  late String _color, _lang, _curve, _code, _relay;
 
   Map<String, dynamic> toJson() => {
         "light": AppLightTheme.value,
+        "color": AppPrimaryColor.value.code,
         "lang": AppLang.value.code,
         "curve": AppCodeCurve.value.code,
         "code": DefaultCodeTextEditingController.text,
@@ -35,11 +37,12 @@ class Config {
       };
 
   Config.fromJson(final Map<String, dynamic> json)
-      : _light = json["light"],
-        _lang = json["lang"],
-        _curve = json["curve"],
-        _code = json["code"],
-        _relay = json["relay"];
+      : _light = json["light"] ?? AppLightTheme.value,
+        _color = json["color"] ?? AppPrimaryColor.value.code,
+        _lang = json["lang"] ?? AppLang.value.code,
+        _curve = json["curve"] ?? AppCodeCurve.value.code,
+        _code = json["code"] ?? DefaultCodeTextEditingController.text,
+        _relay = json["relay"] ?? RelayServerTextEditingController.text;
 
   static Future<io.File> _find() async {
     final doc = await getApplicationDocumentsDirectory();
@@ -58,6 +61,7 @@ class Config {
   static Future<void> load() async {
     final config = Config.fromJson(convert.jsonDecode((await _find()).readAsStringSync()));
     AppLightTheme.value = config._light;
+    AppPrimaryColor.value = Color.findByCode(config._color);
     AppLang.value = Lang.findByCode(config._lang);
     AppCodeCurve.value = CodeCurve.findByCode(config._curve);
     DefaultCodeTextEditingController.text = config._code;

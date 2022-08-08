@@ -1,5 +1,26 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
+enum Color {
+  TEAL(code: "teal", label: "Teal", color: Colors.teal),
+  BLUE(code: "blue", label: "Blue", color: Colors.blue),
+  READ(code: "red", label: "Red", color: Colors.red),
+  AMBER(code: "amber", label: "Amber", color: Colors.amber),
+  BROWN(code: "brown", label: "Brown", color: Colors.brown),
+  PURPLE(code: "purple", label: "Purple", color: Colors.deepPurple);
+
+  const Color({required this.code, required this.label, required this.color});
+
+  final String code;
+  final String label;
+  final MaterialColor color;
+
+  static Color findByCode(String code) {
+    return Color.values.firstWhere((l) => l.code == code, orElse: () => TEAL);
+  }
+}
+
 enum Lang {
   EN(code: "en", label: "English", locale: Locale("en")),
   ZH_CN(code:"zh_CN", label: "简体中文", locale: Locale("zh", "CN")),
