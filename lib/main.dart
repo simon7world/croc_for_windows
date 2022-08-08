@@ -34,16 +34,16 @@ class _CrocAppState extends State<CrocApp> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: AppLightTheme,
-      builder: (context, bool light, child) {
+      builder: (final context, final bool light, final child) {
         return ValueListenableBuilder(
           valueListenable: AppLang,
-          builder: (context, Lang lang, child) {
+          builder: (final context, final Lang lang, final child) {
             return ValueListenableBuilder(
                 valueListenable: AppPrimaryColor,
-                builder: (context, Color color, child) {
+                builder: (final context, final Color color, final child) {
                   return MaterialApp(
                     localizationsDelegates: const [
                       S.delegate,
@@ -56,12 +56,12 @@ class _CrocAppState extends State<CrocApp> {
                     title: AppName,
                     theme: ThemeData(
                       brightness: Brightness.light,
-                      primarySwatch: color.color,
+                      primarySwatch: color.value,
                       fontFamily: AppFontFamily,
                     ),
                     darkTheme: ThemeData(
                       brightness: Brightness.dark,
-                      primarySwatch: color.color,
+                      primarySwatch: color.value,
                       fontFamily: AppFontFamily,
                     ),
                     themeMode: light ? ThemeMode.light : ThemeMode.dark,
@@ -84,7 +84,7 @@ class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Material(
       child: WindowBorder(
         width: 3,

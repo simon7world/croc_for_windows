@@ -7,7 +7,7 @@ class SpaceBetweenItem extends StatelessWidget {
   final Widget value;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return SizedBox(
       width: 500,
       height: 70,
@@ -32,7 +32,7 @@ class SpaceBetweenTextItem extends StatelessWidget {
   final GestureTapCallback? onTap;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final Widget textW = Text(
       text,
       style: Theme.of(context).textTheme.titleMedium!.copyWith(

@@ -22,10 +22,18 @@ final TextEditingController DefaultCodeTextEditingController = TextEditingContro
 final TextEditingController RelayServerTextEditingController = TextEditingController(text: "");
 
 class Config {
-  Config();
-
   late bool _light;
   late String _color, _lang, _curve, _code, _relay;
+
+  Config();
+
+  Config.fromJson(final Map<String, dynamic> json)
+      : _light = json["light"] ?? AppLightTheme.value,
+        _color = json["color"] ?? AppPrimaryColor.value.code,
+        _lang = json["lang"] ?? AppLang.value.code,
+        _curve = json["curve"] ?? AppCodeCurve.value.code,
+        _code = json["code"] ?? DefaultCodeTextEditingController.text,
+        _relay = json["relay"] ?? RelayServerTextEditingController.text;
 
   Map<String, dynamic> toJson() => {
         "light": AppLightTheme.value,
@@ -35,14 +43,6 @@ class Config {
         "code": DefaultCodeTextEditingController.text,
         "relay": RelayServerTextEditingController.text,
       };
-
-  Config.fromJson(final Map<String, dynamic> json)
-      : _light = json["light"] ?? AppLightTheme.value,
-        _color = json["color"] ?? AppPrimaryColor.value.code,
-        _lang = json["lang"] ?? AppLang.value.code,
-        _curve = json["curve"] ?? AppCodeCurve.value.code,
-        _code = json["code"] ?? DefaultCodeTextEditingController.text,
-        _relay = json["relay"] ?? RelayServerTextEditingController.text;
 
   static Future<io.File> _find() async {
     final doc = await getApplicationDocumentsDirectory();

@@ -12,12 +12,12 @@ class AboutPage extends StatelessWidget {
   static const String _cfw = "github.com/simon7world/croc_for_windows";
   static const String _c = "github.com/schollz/croc";
 
-  void _launchUrl(String url) {
+  void _launchUrl(final String url) {
     launchUrl(Uri.parse(url));
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[

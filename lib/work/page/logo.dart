@@ -5,7 +5,7 @@ class Logo extends StatelessWidget {
   const Logo({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return SizedBox(
       width: 400,
       height: 170,

@@ -8,25 +8,12 @@ import '../generated/l10n.dart';
 class NavigationBox extends StatelessWidget {
   const NavigationBox({Key? key}) : super(key: key);
 
-  void _click(String type) {
-    switch (type) {
-      case "send":
-        WorkPageController.animateToPage(0, duration: const Duration(milliseconds: 250), curve: Curves.ease);
-        break;
-      case "receive":
-        WorkPageController.animateToPage(1, duration: const Duration(milliseconds: 250), curve: Curves.ease);
-        break;
-      case "settings":
-        WorkPageController.animateToPage(2, duration: const Duration(milliseconds: 250), curve: Curves.ease);
-        break;
-      case "about":
-        WorkPageController.animateToPage(3, duration: const Duration(milliseconds: 250), curve: Curves.ease);
-        break;
-    }
+  void _switch(final int page) {
+    WorkPageController.animateToPage(page, duration: const Duration(milliseconds: 250), curve: Curves.ease);
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       width: 200,
       color: Theme.of(context).backgroundColor,
@@ -44,26 +31,26 @@ class NavigationBox extends StatelessWidget {
           NavigationItem(
             label: S.of(context).send,
             icon: Icons.arrow_circle_up,
-            onTap: () => _click("send"),
+            onTap: () => _switch(0),
           ),
           NavigationItem(
             label: S.of(context).receive,
             icon: Icons.arrow_circle_down,
-            onTap: () => _click("receive"),
+            onTap: () => _switch(1),
           ),
           NavigationItem(
             label: S.of(context).settings,
             icon: Icons.widgets_outlined,
-            onTap: () => _click("settings"),
+            onTap: () => _switch(2),
           ),
           NavigationItem(
             label: S.of(context).about,
             icon: Icons.account_circle_outlined,
-            onTap: () => _click("about"),
+            onTap: () => _switch(3),
           ),
           Switch(
             value: AppLightTheme.value,
-            onChanged: (value) {
+            onChanged: (final value) {
               AppLightTheme.value = value;
               Config.overwrite();
             },
@@ -88,7 +75,7 @@ class NavigationItem extends StatefulWidget {
 class _NavigationItemState extends State<NavigationItem> {
   late bool _hover;
 
-  void _changeBgColor(event) {
+  void _changeBgColor(final event) {
     setState(() {
       if (event is PointerEnterEvent) {
         _hover = true;
@@ -106,7 +93,7 @@ class _NavigationItemState extends State<NavigationItem> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Expanded(
       child: MouseRegion(
         cursor: SystemMouseCursors.click,

@@ -1,22 +1,20 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 enum Color {
-  TEAL(code: "teal", label: "Teal", color: Colors.teal),
-  BLUE(code: "blue", label: "Blue", color: Colors.blue),
-  READ(code: "red", label: "Red", color: Colors.red),
-  AMBER(code: "amber", label: "Amber", color: Colors.amber),
-  BROWN(code: "brown", label: "Brown", color: Colors.brown),
-  PURPLE(code: "purple", label: "Purple", color: Colors.deepPurple);
+  TEAL(code: "teal", label: "Teal", value: Colors.teal),
+  BLUE(code: "blue", label: "Blue", value: Colors.blue),
+  READ(code: "red", label: "Red", value: Colors.red),
+  AMBER(code: "amber", label: "Amber", value: Colors.amber),
+  BROWN(code: "brown", label: "Brown", value: Colors.brown),
+  PURPLE(code: "purple", label: "Purple", value: Colors.deepPurple);
 
-  const Color({required this.code, required this.label, required this.color});
+  const Color({required this.code, required this.label, required this.value});
 
   final String code;
   final String label;
-  final MaterialColor color;
+  final MaterialColor value;
 
-  static Color findByCode(String code) {
+  static Color findByCode(final String code) {
     return Color.values.firstWhere((l) => l.code == code, orElse: () => TEAL);
   }
 }
@@ -32,7 +30,7 @@ enum Lang {
   final String label;
   final Locale locale;
 
-  static Lang findByCode(String code) {
+  static Lang findByCode(final String code) {
     return Lang.values.firstWhere((l) => l.code == code, orElse: () => EN);
   }
 }
@@ -48,7 +46,7 @@ enum CodeCurve {
   final String label;
   final String code;
 
-  static CodeCurve findByCode(String code) {
+  static CodeCurve findByCode(final String code) {
     return CodeCurve.values.firstWhere((cc) => cc.code == code, orElse: () => P256);
   }
 }

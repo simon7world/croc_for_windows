@@ -9,7 +9,7 @@ class WorkBox extends StatelessWidget {
   const WorkBox({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final mbColors = WindowButtonColors(
       iconNormal: Theme.of(context).highlightColor,
       mouseOver: Theme.of(context).backgroundColor,

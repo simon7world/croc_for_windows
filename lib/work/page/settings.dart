@@ -10,7 +10,7 @@ class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final codeFocus = FocusNode();
     final relayFocus = FocusNode();
 
@@ -61,7 +61,7 @@ class SettingsPage extends StatelessWidget {
             label: S.of(context).settings_encryptionCurve,
             value: ValueListenableBuilder(
                 valueListenable: AppCodeCurve,
-                builder: (context, CodeCurve curve, child) {
+                builder: (final context, final CodeCurve curve, final child) {
                   return DropdownButton<CodeCurve>(
                     alignment: Alignment.center,
                     elevation: 9,
@@ -70,13 +70,13 @@ class SettingsPage extends StatelessWidget {
                       height: 1,
                       color: Theme.of(context).hintColor,
                     ),
-                    onChanged: (CodeCurve? curve) {
+                    onChanged: (final CodeCurve? curve) {
                       if (curve != null) {
                         AppCodeCurve.value = curve;
                         Config.overwrite();
                       }
                     },
-                    items: CodeCurve.values.map<DropdownMenuItem<CodeCurve>>((CodeCurve curve) {
+                    items: CodeCurve.values.map<DropdownMenuItem<CodeCurve>>((final CodeCurve curve) {
                       return DropdownMenuItem<CodeCurve>(
                         value: curve,
                         child: Text(curve.label),
@@ -94,13 +94,13 @@ class SettingsPage extends StatelessWidget {
                 height: 1,
                 color: Theme.of(context).hintColor,
               ),
-              onChanged: (Lang? lang) {
+              onChanged: (final Lang? lang) {
                 if (lang != null) {
                   AppLang.value = lang;
                   Config.overwrite();
                 }
               },
-              items: Lang.values.map<DropdownMenuItem<Lang>>((Lang lang) {
+              items: Lang.values.map<DropdownMenuItem<Lang>>((final Lang lang) {
                 return DropdownMenuItem<Lang>(
                   value: lang,
                   child: Text(lang.label),
@@ -117,13 +117,13 @@ class SettingsPage extends StatelessWidget {
                 height: 1,
                 color: Theme.of(context).hintColor,
               ),
-              onChanged: (Color? color) {
+              onChanged: (final Color? color) {
                 if (color != null) {
                   AppPrimaryColor.value = color;
                   Config.overwrite();
                 }
               },
-              items: Color.values.map<DropdownMenuItem<Color>>((Color color) {
+              items: Color.values.map<DropdownMenuItem<Color>>((final Color color) {
                 return DropdownMenuItem<Color>(
                   value: color,
                   child: Text(color.label),
