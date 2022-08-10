@@ -1,9 +1,10 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 
-import '../constant/const.dart';
 import 'page/about.dart';
+import 'page/send.dart';
 import 'page/settings.dart';
+import 'work_model.dart';
 
 class WorkBox extends StatelessWidget {
   const WorkBox({Key? key}) : super(key: key);
@@ -46,11 +47,9 @@ class WorkBox extends StatelessWidget {
           ),
           Expanded(
             child: PageView(
-              controller: WorkPageController,
+              controller: Work.PageViewController,
               children: <Widget>[
-                Container(
-                  child: Text("aaaaaaaaa"),
-                ),
+                const SendPage(),
                 Container(
                   child: Text("bbbbbbbbbbbb"),
                 ),

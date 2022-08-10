@@ -2,14 +2,17 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import '../config/config.dart';
 import '../constant/const.dart';
 import '../generated/l10n.dart';
+import '../work/work_model.dart';
+import 'navigation_model.dart';
 
 class NavigationBox extends StatelessWidget {
   const NavigationBox({Key? key}) : super(key: key);
 
   void _switch(final int page) {
-    WorkPageController.animateToPage(page, duration: const Duration(milliseconds: 250), curve: Curves.ease);
+    Work.PageViewController.animateToPage(page, duration: const Duration(milliseconds: 250), curve: Curves.ease);
   }
 
   @override
@@ -49,9 +52,9 @@ class NavigationBox extends StatelessWidget {
             onTap: () => _switch(3),
           ),
           Switch(
-            value: AppLightTheme.value,
+            value: Navigation.AppLightTheme.value,
             onChanged: (final value) {
-              AppLightTheme.value = value;
+              Navigation.AppLightTheme.value = value;
               Config.overwrite();
             },
           )

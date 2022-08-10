@@ -28,7 +28,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "about_cfw": MessageLookupByLibrary.simpleMessage("CFW"),
         "about_version": MessageLookupByLibrary.simpleMessage("版本号"),
         "receive": MessageLookupByLibrary.simpleMessage("接收"),
+        "receive_codeIs": MessageLookupByLibrary.simpleMessage("密码"),
+        "receive_location": MessageLookupByLibrary.simpleMessage("存放位置"),
+        "receive_receiving": MessageLookupByLibrary.simpleMessage("接收"),
+        "receive_useDefaultCode":
+            MessageLookupByLibrary.simpleMessage("使用默认密码"),
         "send": MessageLookupByLibrary.simpleMessage("发送"),
+        "send_codeIs": MessageLookupByLibrary.simpleMessage("密码"),
+        "send_filePick": MessageLookupByLibrary.simpleMessage("选择文件/文件夹"),
+        "send_sending": MessageLookupByLibrary.simpleMessage("发送"),
+        "send_useDefaultCode": MessageLookupByLibrary.simpleMessage("使用默认密码"),
         "settings": MessageLookupByLibrary.simpleMessage("设置"),
         "settings_defaultCode": MessageLookupByLibrary.simpleMessage("默认密码"),
         "settings_encryptionCurve":

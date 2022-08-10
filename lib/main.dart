@@ -2,10 +2,13 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'config/config.dart';
 import 'constant/const.dart';
 import 'constant/enums.dart';
 import 'generated/l10n.dart';
 import 'navigation/navigation.dart';
+import 'navigation/navigation_model.dart';
+import 'work/page/settings_model.dart';
 import 'work/work.dart';
 
 void main() async {
@@ -36,13 +39,13 @@ class _CrocAppState extends State<CrocApp> {
   @override
   Widget build(final BuildContext context) {
     return ValueListenableBuilder(
-      valueListenable: AppLightTheme,
+      valueListenable: Navigation.AppLightTheme,
       builder: (final context, final bool light, final child) {
         return ValueListenableBuilder(
-          valueListenable: AppLang,
+          valueListenable: Settings.AppLang,
           builder: (final context, final Lang lang, final child) {
             return ValueListenableBuilder(
-                valueListenable: AppPrimaryColor,
+                valueListenable: Settings.AppPrimaryColor,
                 builder: (final context, final Color color, final child) {
                   return MaterialApp(
                     localizationsDelegates: const [

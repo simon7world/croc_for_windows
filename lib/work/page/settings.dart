@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../constant/const.dart';
+import '../../config/config.dart';
 import '../../constant/enums.dart';
 import '../../generated/l10n.dart';
 import 'item.dart';
 import 'logo.dart';
+import 'settings_model.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -36,7 +37,7 @@ class SettingsPage extends StatelessWidget {
               height: 60,
               child: TextField(
                 focusNode: codeFocus,
-                controller: DefaultCodeTextEditingController,
+                controller: Settings.DefaultCodeTextEditingController,
                 maxLength: 32,
                 decoration: const InputDecoration(
                   border: UnderlineInputBorder(),
@@ -50,7 +51,7 @@ class SettingsPage extends StatelessWidget {
               height: 60,
               child: TextField(
                 focusNode: relayFocus,
-                controller: RelayServerTextEditingController,
+                controller: Settings.RelayServerTextEditingController,
                 maxLength: 128,
                 decoration: const InputDecoration(
                   border: UnderlineInputBorder(),
@@ -60,7 +61,7 @@ class SettingsPage extends StatelessWidget {
         SpaceBetweenItem(
             label: S.of(context).settings_encryptionCurve,
             value: ValueListenableBuilder(
-                valueListenable: AppCodeCurve,
+                valueListenable: Settings.AppCodeCurve,
                 builder: (final context, final CodeCurve curve, final child) {
                   return DropdownButton<CodeCurve>(
                     alignment: Alignment.center,
@@ -72,7 +73,7 @@ class SettingsPage extends StatelessWidget {
                     ),
                     onChanged: (final CodeCurve? curve) {
                       if (curve != null) {
-                        AppCodeCurve.value = curve;
+                        Settings.AppCodeCurve.value = curve;
                         Config.overwrite();
                       }
                     },
@@ -89,14 +90,14 @@ class SettingsPage extends StatelessWidget {
             value: DropdownButton<Lang>(
               alignment: Alignment.center,
               elevation: 9,
-              value: AppLang.value,
+              value: Settings.AppLang.value,
               underline: Container(
                 height: 1,
                 color: Theme.of(context).hintColor,
               ),
               onChanged: (final Lang? lang) {
                 if (lang != null) {
-                  AppLang.value = lang;
+                  Settings.AppLang.value = lang;
                   Config.overwrite();
                 }
               },
@@ -112,14 +113,14 @@ class SettingsPage extends StatelessWidget {
             value: DropdownButton<Color>(
               alignment: Alignment.center,
               elevation: 9,
-              value: AppPrimaryColor.value,
+              value: Settings.AppPrimaryColor.value,
               underline: Container(
                 height: 1,
                 color: Theme.of(context).hintColor,
               ),
               onChanged: (final Color? color) {
                 if (color != null) {
-                  AppPrimaryColor.value = color;
+                  Settings.AppPrimaryColor.value = color;
                   Config.overwrite();
                 }
               },

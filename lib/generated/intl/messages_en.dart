@@ -28,7 +28,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "about_cfw": MessageLookupByLibrary.simpleMessage("CFW"),
         "about_version": MessageLookupByLibrary.simpleMessage("Version"),
         "receive": MessageLookupByLibrary.simpleMessage("Receive"),
+        "receive_codeIs": MessageLookupByLibrary.simpleMessage("Code is"),
+        "receive_location":
+            MessageLookupByLibrary.simpleMessage("Storage location"),
+        "receive_receiving": MessageLookupByLibrary.simpleMessage("Receiving"),
+        "receive_useDefaultCode":
+            MessageLookupByLibrary.simpleMessage("Use default code"),
         "send": MessageLookupByLibrary.simpleMessage("Send"),
+        "send_codeIs": MessageLookupByLibrary.simpleMessage("Code is"),
+        "send_filePick":
+            MessageLookupByLibrary.simpleMessage("Pick a file/folder"),
+        "send_sending": MessageLookupByLibrary.simpleMessage("Sending"),
+        "send_useDefaultCode":
+            MessageLookupByLibrary.simpleMessage("Use default code"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "settings_defaultCode":
             MessageLookupByLibrary.simpleMessage("Default Code"),

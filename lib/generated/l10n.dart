@@ -60,11 +60,91 @@ class S {
     );
   }
 
+  /// `Pick a file/folder`
+  String get send_filePick {
+    return Intl.message(
+      'Pick a file/folder',
+      name: 'send_filePick',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Code is`
+  String get send_codeIs {
+    return Intl.message(
+      'Code is',
+      name: 'send_codeIs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Use default code`
+  String get send_useDefaultCode {
+    return Intl.message(
+      'Use default code',
+      name: 'send_useDefaultCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sending`
+  String get send_sending {
+    return Intl.message(
+      'Sending',
+      name: 'send_sending',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Receive`
   String get receive {
     return Intl.message(
       'Receive',
       name: 'receive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Storage location`
+  String get receive_location {
+    return Intl.message(
+      'Storage location',
+      name: 'receive_location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Code is`
+  String get receive_codeIs {
+    return Intl.message(
+      'Code is',
+      name: 'receive_codeIs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Use default code`
+  String get receive_useDefaultCode {
+    return Intl.message(
+      'Use default code',
+      name: 'receive_useDefaultCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Receiving`
+  String get receive_receiving {
+    return Intl.message(
+      'Receiving',
+      name: 'receive_receiving',
       desc: '',
       args: [],
     );
