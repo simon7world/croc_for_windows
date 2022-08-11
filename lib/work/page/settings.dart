@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../config/config.dart';
+import '../../constant/const.dart';
 import '../../constant/enums.dart';
 import '../../generated/l10n.dart';
 import 'item.dart';
@@ -13,18 +14,9 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     final codeFocus = FocusNode();
+    codeFocus.addListener(() => codeFocus.hasFocus ? null : Config.overwrite());
     final relayFocus = FocusNode();
-
-    codeFocus.addListener(() {
-      if (!codeFocus.hasFocus) {
-        Config.overwrite();
-      }
-    });
-    relayFocus.addListener(() {
-      if (!relayFocus.hasFocus) {
-        Config.overwrite();
-      }
-    });
+    relayFocus.addListener(() => relayFocus.hasFocus ? null : Config.overwrite());
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -34,7 +26,7 @@ class SettingsPage extends StatelessWidget {
             label: S.of(context).settings_defaultCode,
             value: SizedBox(
               width: 200,
-              height: 60,
+              height: TextFieldHeight,
               child: TextField(
                 focusNode: codeFocus,
                 controller: Settings.DefaultCodeTextEditingController,
@@ -48,7 +40,7 @@ class SettingsPage extends StatelessWidget {
             label: S.of(context).settings_relayServer,
             value: SizedBox(
               width: 200,
-              height: 60,
+              height: TextFieldHeight,
               child: TextField(
                 focusNode: relayFocus,
                 controller: Settings.RelayServerTextEditingController,

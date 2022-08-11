@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../constant/const.dart';
+
 class SpaceBetweenItem extends StatelessWidget {
   const SpaceBetweenItem({Key? key, required this.label, required this.value}) : super(key: key);
 
@@ -9,7 +11,7 @@ class SpaceBetweenItem extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     return SizedBox(
-      width: 500,
+      width: ContentWidth,
       height: 70,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -35,9 +37,7 @@ class SpaceBetweenTextItem extends StatelessWidget {
   Widget build(final BuildContext context) {
     final Widget textW = Text(
       text,
-      style: Theme.of(context).textTheme.titleMedium!.copyWith(
-            fontWeight: FontWeight.normal,
-          ),
+      style: Theme.of(context).textTheme.titleMedium!.copyWith(fontWeight: FontWeight.normal),
     );
     final Widget textOnTapW = GestureDetector(
       onTap: onTap,
@@ -54,7 +54,7 @@ class SpaceBetweenTextItem extends StatelessWidget {
     );
 
     return SizedBox(
-      width: 500,
+      width: ContentWidth,
       height: 70,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

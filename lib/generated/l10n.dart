@@ -70,11 +70,11 @@ class S {
     );
   }
 
-  /// `Code is`
-  String get send_codeIs {
+  /// `Code`
+  String get send_code {
     return Intl.message(
-      'Code is',
-      name: 'send_codeIs',
+      'Code',
+      name: 'send_code',
       desc: '',
       args: [],
     );
@@ -120,11 +120,11 @@ class S {
     );
   }
 
-  /// `Code is`
-  String get receive_codeIs {
+  /// `Code`
+  String get receive_code {
     return Intl.message(
-      'Code is',
-      name: 'receive_codeIs',
+      'Code',
+      name: 'receive_code',
       desc: '',
       args: [],
     );

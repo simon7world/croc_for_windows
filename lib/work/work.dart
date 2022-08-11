@@ -2,6 +2,7 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 
 import 'page/about.dart';
+import 'page/receive.dart';
 import 'page/send.dart';
 import 'page/settings.dart';
 import 'work_model.dart';
@@ -48,13 +49,11 @@ class WorkBox extends StatelessWidget {
           Expanded(
             child: PageView(
               controller: Work.PageViewController,
-              children: <Widget>[
-                const SendPage(),
-                Container(
-                  child: Text("bbbbbbbbbbbb"),
-                ),
-                const SettingsPage(),
-                const AboutPage(),
+              children: const <Widget>[
+                SendPage(),
+                ReceivePage(),
+                SettingsPage(),
+                AboutPage(),
               ],
             ),
           ),

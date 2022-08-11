@@ -1,46 +1,50 @@
-import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
 
+import '../../common/textFieldWithCheckbox.dart';
+import '../../constant/const.dart';
 import '../../generated/l10n.dart';
 import 'logo.dart';
 import 'send_model.dart';
+import 'settings_model.dart';
 
 class SendPage extends StatelessWidget {
   const SendPage({Key? key}) : super(key: key);
 
+  static final ButtonStyle _buttonStyle = ElevatedButton.styleFrom(
+    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+    textStyle: const TextStyle(fontSize: 20),
+  );
+
   @override
   Widget build(final BuildContext context) {
-    final filePickFocus = FocusNode();
-
-    filePickFocus.addListener(() async {
-      if (filePickFocus.hasFocus) {
-        final String? path = await getDirectoryPath();
-        if (path != null) {
-          print(path);
-        }
-      }
-    });
-
-    getDownloadsDirectory().then((value) => Send.FilePickTextEditingController.text = value!.path);
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         const Logo(),
         SizedBox(
-          width: 200,
-          height: 60,
+          width: 300,
+          height: TextFieldHeight,
           child: TextField(
-            focusNode: filePickFocus,
             controller: Send.FilePickTextEditingController,
-            readOnly: true,
+            enabled: false,
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: S.of(context).send_filePick,
             ),
           ),
-        )
+        ),
+        WidgetTextFieldWithCheckbox(
+          textController: Send.CodeTextEditingController,
+          checkedNotifier: Send.DefaultCode,
+          textLabel: S.of(context).send_code,
+          checkboxLabel: S.of(context).send_useDefaultCode,
+          onCheck: (w) => w.changeText(Settings.DefaultCodeTextEditingController.text),
+        ),
+        ElevatedButton(
+          style: _buttonStyle,
+          onPressed: Send.sendFile,
+          child: Text(S.of(context).send_sending),
+        ),
       ],
     );
   }
