@@ -19,5 +19,13 @@
   "about_author": "Author",
   "about_version": "Version",
   "about_cfw": "CFW",
-  "about_c": "Croc"
+  "about_c": "Croc",
+  "color_teal": "Teal",
+  "color_blue": "Blue",
+  "color_red": "Red",
+  "color_amber": "Amber",
+  "color_brown": "Brown",
+  "color_purple": "Purple",
+  "select_file": "File",
+  "select_folder": "Folder"
 }

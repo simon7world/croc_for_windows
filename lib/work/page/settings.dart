@@ -4,6 +4,7 @@ import '../../config/config.dart';
 import '../../constant/const.dart';
 import '../../constant/enums.dart';
 import '../../generated/l10n.dart';
+import '../../constant/exL10n.dart';
 import 'item.dart';
 import 'logo.dart';
 import 'settings_model.dart';
@@ -119,7 +120,7 @@ class SettingsPage extends StatelessWidget {
               items: Color.values.map<DropdownMenuItem<Color>>((final Color color) {
                 return DropdownMenuItem<Color>(
                   value: color,
-                  child: Text(color.label),
+                  child: Text(S.of(context).get("color_${color.code}")),
                 );
               }).toList(),
             )),

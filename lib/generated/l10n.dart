@@ -259,6 +259,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Teal`
+  String get color_teal {
+    return Intl.message(
+      'Teal',
+      name: 'color_teal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Blue`
+  String get color_blue {
+    return Intl.message(
+      'Blue',
+      name: 'color_blue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Red`
+  String get color_red {
+    return Intl.message(
+      'Red',
+      name: 'color_red',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Amber`
+  String get color_amber {
+    return Intl.message(
+      'Amber',
+      name: 'color_amber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Brown`
+  String get color_brown {
+    return Intl.message(
+      'Brown',
+      name: 'color_brown',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Purple`
+  String get color_purple {
+    return Intl.message(
+      'Purple',
+      name: 'color_purple',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `File`
+  String get select_file {
+    return Intl.message(
+      'File',
+      name: 'select_file',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Folder`
+  String get select_folder {
+    return Intl.message(
+      'Folder',
+      name: 'select_folder',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

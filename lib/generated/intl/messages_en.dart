@@ -27,6 +27,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "about_c": MessageLookupByLibrary.simpleMessage("Croc"),
         "about_cfw": MessageLookupByLibrary.simpleMessage("CFW"),
         "about_version": MessageLookupByLibrary.simpleMessage("Version"),
+        "color_amber": MessageLookupByLibrary.simpleMessage("Amber"),
+        "color_blue": MessageLookupByLibrary.simpleMessage("Blue"),
+        "color_brown": MessageLookupByLibrary.simpleMessage("Brown"),
+        "color_purple": MessageLookupByLibrary.simpleMessage("Purple"),
+        "color_red": MessageLookupByLibrary.simpleMessage("Red"),
+        "color_teal": MessageLookupByLibrary.simpleMessage("Teal"),
         "receive": MessageLookupByLibrary.simpleMessage("Receive"),
         "receive_code": MessageLookupByLibrary.simpleMessage("Code"),
         "receive_location":
@@ -34,6 +40,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "receive_receiving": MessageLookupByLibrary.simpleMessage("Receiving"),
         "receive_useDefaultCode":
             MessageLookupByLibrary.simpleMessage("Use default code"),
+        "select_file": MessageLookupByLibrary.simpleMessage("File"),
+        "select_folder": MessageLookupByLibrary.simpleMessage("Folder"),
         "send": MessageLookupByLibrary.simpleMessage("Send"),
         "send_code": MessageLookupByLibrary.simpleMessage("Code"),
         "send_filePick":

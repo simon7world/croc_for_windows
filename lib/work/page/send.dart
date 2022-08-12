@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../common/textFieldWithCheckbox.dart';
 import '../../constant/const.dart';
+import '../../constant/enums.dart';
 import '../../generated/l10n.dart';
+import '../../constant/exL10n.dart';
 import 'logo.dart';
 import 'send_model.dart';
 import 'settings_model.dart';
@@ -21,17 +23,33 @@ class SendPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         const Logo(),
-        SizedBox(
-          width: 300,
-          height: TextFieldHeight,
-          child: TextField(
-            controller: Send.FilePickTextEditingController,
-            enabled: false,
-            decoration: InputDecoration(
-              border: const OutlineInputBorder(),
-              labelText: S.of(context).send_filePick,
+        PopupMenuButton<Select>(
+          onSelected: (Select select) {
+            switch (select) {
+              case Select.FILE:
+                break;
+              case Select.FOLDER:
+                break;
+            }
+          },
+          child: SizedBox(
+            width: ContentWidth,
+            height: TextFieldHeight,
+            child: TextField(
+              controller: Send.FilePickTextEditingController,
+              enabled: false,
+              decoration: InputDecoration(
+                border: const OutlineInputBorder(),
+                labelText: S.of(context).send_filePick,
+              ),
             ),
           ),
+          itemBuilder: (context) => Select.values.map<PopupMenuEntry<Select>>((final Select select) {
+            return PopupMenuItem<Select>(
+              value: select,
+              child: Text(S.of(context).get("select_${select.code}")),
+            );
+          }).toList(),
         ),
         WidgetTextFieldWithCheckbox(
           textController: Send.CodeTextEditingController,

@@ -19,5 +19,13 @@
   "about_author": "作者",
   "about_version": "版本号",
   "about_cfw": "CFW",
-  "about_c": "Croc"
+  "about_c": "Croc",
+  "color_teal": "水鸭色",
+  "color_blue": "蓝色",
+  "color_red": "红色",
+  "color_amber": "琥珀色",
+  "color_brown": "棕色",
+  "color_purple": "紫色",
+  "select_file": "文件",
+  "select_folder": "文件夹"
 }
