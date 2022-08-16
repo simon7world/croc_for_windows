@@ -1,6 +1,11 @@
+import 'dart:io';
+
+import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../common/textFieldWithCheckbox.dart';
+import '../../config/config.dart';
 import '../../constant/const.dart';
 import '../../constant/enums.dart';
 import '../../generated/l10n.dart';
@@ -17,6 +22,33 @@ class SendPage extends StatelessWidget {
     textStyle: const TextStyle(fontSize: 20),
   );
 
+  void _openFolder() {
+    final path = Send.FilePickTextEditingController.text;
+    if (path != "") {
+      if (FileSystemEntity.isDirectorySync(path)) {
+        launchUrlString(path);
+      } else {
+        launchUrlString(File(path).parent.path);
+      }
+    }
+  }
+
+  void _getFile() async {
+    final XFile? file = await openFile();
+    if (file != null) {
+      Send.FilePickTextEditingController.text = file.path;
+      Config.overwrite();
+    }
+  }
+
+  void _getFolder() async {
+    final String? path = await getDirectoryPath();
+    if (path != null) {
+      Send.FilePickTextEditingController.text = path;
+      Config.overwrite();
+    }
+  }
+
   @override
   Widget build(final BuildContext context) {
     return Column(
@@ -24,11 +56,14 @@ class SendPage extends StatelessWidget {
       children: <Widget>[
         const Logo(),
         PopupMenuButton<Select>(
+          elevation: 9,
           onSelected: (Select select) {
             switch (select) {
               case Select.FILE:
+                _getFile();
                 break;
               case Select.FOLDER:
+                _getFolder();
                 break;
             }
           },
@@ -58,10 +93,23 @@ class SendPage extends StatelessWidget {
           checkboxLabel: S.of(context).send_useDefaultCode,
           onCheck: (w) => w.changeText(Settings.DefaultCodeTextEditingController.text),
         ),
-        ElevatedButton(
-          style: _buttonStyle,
-          onPressed: Send.sendFile,
-          child: Text(S.of(context).send_sending),
+        SizedBox(
+          width: 450,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              ElevatedButton(
+                style: _buttonStyle,
+                onPressed: Send.sendFile,
+                child: Text(S.of(context).send_sending),
+              ),
+              ElevatedButton(
+                style: _buttonStyle,
+                onPressed: _openFolder,
+                child: Text(S.of(context).send_openFolder),
+              ),
+            ],
+          ),
         ),
       ],
     );

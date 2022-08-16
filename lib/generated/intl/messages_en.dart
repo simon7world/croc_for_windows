@@ -37,6 +37,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "receive_code": MessageLookupByLibrary.simpleMessage("Code"),
         "receive_location":
             MessageLookupByLibrary.simpleMessage("Storage location"),
+        "receive_openFolder":
+            MessageLookupByLibrary.simpleMessage("Open folder"),
         "receive_receiving": MessageLookupByLibrary.simpleMessage("Receiving"),
         "receive_useDefaultCode":
             MessageLookupByLibrary.simpleMessage("Use default code"),
@@ -46,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "send_code": MessageLookupByLibrary.simpleMessage("Code"),
         "send_filePick":
             MessageLookupByLibrary.simpleMessage("Pick a file/folder"),
+        "send_openFolder": MessageLookupByLibrary.simpleMessage("Open folder"),
         "send_sending": MessageLookupByLibrary.simpleMessage("Sending"),
         "send_useDefaultCode":
             MessageLookupByLibrary.simpleMessage("Use default code"),

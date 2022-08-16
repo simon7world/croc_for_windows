@@ -1,5 +1,5 @@
 import 'dart:convert' as convert;
-import 'dart:io' as io;
+import 'dart:io';
 
 import 'package:croc_for_windows/work/page/receive_model.dart';
 import 'package:path/path.dart' as path;
@@ -42,13 +42,13 @@ class Config {
         "receice_location": Receive.FilePickTextEditingController.text,
       };
 
-  static Future<io.File> _find() async {
+  static Future<File> _find() async {
     final doc = await getApplicationDocumentsDirectory();
-    final dir = io.Directory(path.join(doc.path, "Croc4Windows"));
+    final dir = Directory(path.join(doc.path, "Croc4Windows"));
     if (!dir.existsSync()) {
       dir.createSync(recursive: true);
     }
-    final config = io.File(path.join(dir.path, "config.json"));
+    final config = File(path.join(dir.path, "config.json"));
     if (!config.existsSync()) {
       config.createSync();
     }

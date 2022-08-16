@@ -1,4 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
+
+import '../../util/common.dart';
 
 class Send {
   static final TextEditingController FilePickTextEditingController = TextEditingController(text: "");
@@ -7,6 +11,9 @@ class Send {
   static final ValueNotifier<bool> DefaultCode = ValueNotifier(false);
 
   static void sendFile() {
-    print("sendFile");
+
+    final args = ["", ""];
+
+    Process.run(Common.crocExePath, args);
   }
 }

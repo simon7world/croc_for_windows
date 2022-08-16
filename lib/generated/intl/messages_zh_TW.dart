@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "receive": MessageLookupByLibrary.simpleMessage("接收"),
         "receive_code": MessageLookupByLibrary.simpleMessage("密碼"),
         "receive_location": MessageLookupByLibrary.simpleMessage("儲存地址"),
+        "receive_openFolder": MessageLookupByLibrary.simpleMessage("打開檔案夾"),
         "receive_receiving": MessageLookupByLibrary.simpleMessage("接收"),
         "receive_useDefaultCode":
             MessageLookupByLibrary.simpleMessage("使用預設密碼"),
@@ -44,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "send": MessageLookupByLibrary.simpleMessage("發送"),
         "send_code": MessageLookupByLibrary.simpleMessage("密碼"),
         "send_filePick": MessageLookupByLibrary.simpleMessage("選取檔案/檔案夾"),
+        "send_openFolder": MessageLookupByLibrary.simpleMessage("打開檔案夾"),
         "send_sending": MessageLookupByLibrary.simpleMessage("發送"),
         "send_useDefaultCode": MessageLookupByLibrary.simpleMessage("使用預設密碼"),
         "settings": MessageLookupByLibrary.simpleMessage("設定"),

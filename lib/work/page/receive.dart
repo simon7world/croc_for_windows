@@ -1,6 +1,7 @@
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../common/textFieldWithCheckbox.dart';
 import '../../config/config.dart';
@@ -17,6 +18,10 @@ class ReceivePage extends StatelessWidget {
     padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
     textStyle: const TextStyle(fontSize: 20),
   );
+
+  void _openFolder() {
+    launchUrlString(Receive.FilePickTextEditingController.text);
+  }
 
   void _getLocation() async {
     final String? path = await getDirectoryPath();
@@ -56,10 +61,23 @@ class ReceivePage extends StatelessWidget {
           checkboxLabel: S.of(context).receive_useDefaultCode,
           onCheck: (w) => w.changeText(Settings.DefaultCodeTextEditingController.text),
         ),
-        ElevatedButton(
-          style: _buttonStyle,
-          onPressed: Receive.receiveFile,
-          child: Text(S.of(context).receive_receiving),
+        SizedBox(
+          width: 450,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              ElevatedButton(
+                style: _buttonStyle,
+                onPressed: Receive.receiveFile,
+                child: Text(S.of(context).receive_receiving),
+              ),
+              ElevatedButton(
+                style: _buttonStyle,
+                onPressed: _openFolder,
+                child: Text(S.of(context).receive_openFolder),
+              ),
+            ],
+          ),
         ),
       ],
     );

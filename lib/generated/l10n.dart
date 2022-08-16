@@ -100,6 +100,16 @@ class S {
     );
   }
 
+  /// `Open folder`
+  String get send_openFolder {
+    return Intl.message(
+      'Open folder',
+      name: 'send_openFolder',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Receive`
   String get receive {
     return Intl.message(
@@ -145,6 +155,16 @@ class S {
     return Intl.message(
       'Receiving',
       name: 'receive_receiving',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Open folder`
+  String get receive_openFolder {
+    return Intl.message(
+      'Open folder',
+      name: 'receive_openFolder',
       desc: '',
       args: [],
     );
