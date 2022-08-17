@@ -1,7 +1,7 @@
 {
   "send": "發送",
   "send_filePick": "選取檔案/檔案夾",
-  "send_code": "密碼",
+  "send_code": "密碼（可選）",
   "send_useDefaultCode": "使用預設密碼",
   "send_sending": "發送",
   "send_openFolder": "打開檔案夾",
@@ -12,7 +12,7 @@
   "receive_receiving": "接收",
   "receive_openFolder": "打開檔案夾",
   "settings": "設定",
-  "settings_defaultCode": "預設密碼",
+  "settings_defaultCode": "預設密碼（≥6）",
   "settings_encryptionCurve": "加密曲線",
   "settings_relayServer": "中繼伺服器",
   "settings_primaryColor": "主色彩",
@@ -21,7 +21,9 @@
   "about_author": "作者",
   "about_version": "版本號",
   "about_cfw": "CFW",
-  "about_c": "Croc",
+  "about_cfwVersion": "CFW Version",
+  "about_croc": "Croc",
+  "about_crocVersion": "Croc Version",
   "color_teal": "水鴨色",
   "color_blue": "藍色",
   "color_red": "紅色",
@@ -29,5 +31,8 @@
   "color_brown": "棕色",
   "color_purple": "紫色",
   "select_file": "檔案",
-  "select_folder": "檔案夾"
+  "select_folder": "檔案夾",
+  "error": "錯誤",
+  "error_incomplete": "參數不完整",
+  "ok": "確定"
 }

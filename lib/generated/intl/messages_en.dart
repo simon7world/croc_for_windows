@@ -24,15 +24,21 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("About"),
         "about_author": MessageLookupByLibrary.simpleMessage("Author"),
-        "about_c": MessageLookupByLibrary.simpleMessage("Croc"),
         "about_cfw": MessageLookupByLibrary.simpleMessage("CFW"),
-        "about_version": MessageLookupByLibrary.simpleMessage("Version"),
+        "about_cfwVersion": MessageLookupByLibrary.simpleMessage("CFW Version"),
+        "about_croc": MessageLookupByLibrary.simpleMessage("Croc"),
+        "about_crocVersion":
+            MessageLookupByLibrary.simpleMessage("Croc Version"),
         "color_amber": MessageLookupByLibrary.simpleMessage("Amber"),
         "color_blue": MessageLookupByLibrary.simpleMessage("Blue"),
         "color_brown": MessageLookupByLibrary.simpleMessage("Brown"),
         "color_purple": MessageLookupByLibrary.simpleMessage("Purple"),
         "color_red": MessageLookupByLibrary.simpleMessage("Red"),
         "color_teal": MessageLookupByLibrary.simpleMessage("Teal"),
+        "error": MessageLookupByLibrary.simpleMessage("Error"),
+        "error_incomplete":
+            MessageLookupByLibrary.simpleMessage("Incomplete parameters"),
+        "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "receive": MessageLookupByLibrary.simpleMessage("Receive"),
         "receive_code": MessageLookupByLibrary.simpleMessage("Code"),
         "receive_location":
@@ -45,7 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "select_file": MessageLookupByLibrary.simpleMessage("File"),
         "select_folder": MessageLookupByLibrary.simpleMessage("Folder"),
         "send": MessageLookupByLibrary.simpleMessage("Send"),
-        "send_code": MessageLookupByLibrary.simpleMessage("Code"),
+        "send_code": MessageLookupByLibrary.simpleMessage("Code(optional)"),
         "send_filePick":
             MessageLookupByLibrary.simpleMessage("Pick a file/folder"),
         "send_openFolder": MessageLookupByLibrary.simpleMessage("Open folder"),
@@ -54,7 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Use default code"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "settings_defaultCode":
-            MessageLookupByLibrary.simpleMessage("Default Code"),
+            MessageLookupByLibrary.simpleMessage("Default Code(≥6)"),
         "settings_encryptionCurve":
             MessageLookupByLibrary.simpleMessage("Encryption Curve"),
         "settings_language": MessageLookupByLibrary.simpleMessage("Language"),

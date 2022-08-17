@@ -23,63 +23,46 @@ void main() async {
   });
 }
 
-class CrocApp extends StatefulWidget {
+class CrocApp extends StatelessWidget {
   const CrocApp({Key? key}) : super(key: key);
-
-  @override
-  State<CrocApp> createState() => _CrocAppState();
-}
-
-class _CrocAppState extends State<CrocApp> {
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(final BuildContext context) {
     return ValueListenableBuilder(
-      valueListenable: Navigation.AppLightTheme,
-      builder: (final context, final bool light, final child) {
-        return ValueListenableBuilder(
-          valueListenable: Settings.AppLang,
-          builder: (final context, final Lang lang, final child) {
-            return ValueListenableBuilder(
-                valueListenable: Settings.AppPrimaryColor,
-                builder: (final context, final Color color, final child) {
-                  return MaterialApp(
-                    localizationsDelegates: const [
-                      S.delegate,
-                      GlobalMaterialLocalizations.delegate,
-                      GlobalCupertinoLocalizations.delegate,
-                      GlobalWidgetsLocalizations.delegate,
-                    ],
-                    supportedLocales: S.delegate.supportedLocales,
-                    locale: lang.locale,
-                    title: AppName,
-                    theme: ThemeData(
-                      brightness: Brightness.light,
-                      primarySwatch: color.value,
-                      fontFamily: AppFontFamily,
-                    ),
-                    darkTheme: ThemeData(
-                      brightness: Brightness.dark,
-                      primarySwatch: color.value,
-                      fontFamily: AppFontFamily,
-                    ),
-                    themeMode: light ? ThemeMode.light : ThemeMode.dark,
-                    home: const MainPage(),
-                  );
-                });
-          },
-        );
-      },
-    );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
+        valueListenable: Navigation.AppLightTheme,
+        builder: (final context, final bool light, final child) {
+          return ValueListenableBuilder(
+              valueListenable: Settings.AppLang,
+              builder: (final context, final Lang lang, final child) {
+                return ValueListenableBuilder(
+                    valueListenable: Settings.AppPrimaryColor,
+                    builder: (final context, final Color color, final child) {
+                      return MaterialApp(
+                        localizationsDelegates: const [
+                          S.delegate,
+                          GlobalMaterialLocalizations.delegate,
+                          GlobalCupertinoLocalizations.delegate,
+                          GlobalWidgetsLocalizations.delegate,
+                        ],
+                        supportedLocales: S.delegate.supportedLocales,
+                        locale: lang.locale,
+                        title: AppName,
+                        theme: ThemeData(
+                          brightness: Brightness.light,
+                          primarySwatch: color.value,
+                          fontFamily: AppFontFamily,
+                        ),
+                        darkTheme: ThemeData(
+                          brightness: Brightness.dark,
+                          primarySwatch: color.value,
+                          fontFamily: AppFontFamily,
+                        ),
+                        themeMode: light ? ThemeMode.light : ThemeMode.dark,
+                        home: const MainPage(),
+                      );
+                    });
+              });
+        });
   }
 }
 

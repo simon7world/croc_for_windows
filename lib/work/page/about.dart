@@ -27,18 +27,22 @@ class AboutPage extends StatelessWidget {
           text: "Simon P. Chang",
         ),
         SpaceBetweenTextItem(
-          label: S.of(context).about_version,
-          text: AppVersion,
-        ),
-        SpaceBetweenTextItem(
           label: S.of(context).about_cfw,
           text: _cfw,
           onTap: () => _launchUrl("https://$_cfw"),
         ),
         SpaceBetweenTextItem(
-          label: S.of(context).about_c,
+          label: S.of(context).about_cfwVersion,
+          text: AppVersion,
+        ),
+        SpaceBetweenTextItem(
+          label: S.of(context).about_croc,
           text: _c,
           onTap: () => _launchUrl("https://$_c"),
+        ),
+        SpaceBetweenTextItem(
+          label: S.of(context).about_crocVersion,
+          text: CrocVersion,
         ),
         const Padding(
           padding: EdgeInsets.fromLTRB(0, 0, 0, 40),

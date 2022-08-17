@@ -70,10 +70,10 @@ class S {
     );
   }
 
-  /// `Code`
+  /// `Code(optional)`
   String get send_code {
     return Intl.message(
-      'Code',
+      'Code(optional)',
       name: 'send_code',
       desc: '',
       args: [],
@@ -180,10 +180,10 @@ class S {
     );
   }
 
-  /// `Default Code`
+  /// `Default Code(≥6)`
   String get settings_defaultCode {
     return Intl.message(
-      'Default Code',
+      'Default Code(≥6)',
       name: 'settings_defaultCode',
       desc: '',
       args: [],
@@ -250,16 +250,6 @@ class S {
     );
   }
 
-  /// `Version`
-  String get about_version {
-    return Intl.message(
-      'Version',
-      name: 'about_version',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `CFW`
   String get about_cfw {
     return Intl.message(
@@ -270,11 +260,31 @@ class S {
     );
   }
 
+  /// `CFW Version`
+  String get about_cfwVersion {
+    return Intl.message(
+      'CFW Version',
+      name: 'about_cfwVersion',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Croc`
-  String get about_c {
+  String get about_croc {
     return Intl.message(
       'Croc',
-      name: 'about_c',
+      name: 'about_croc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Croc Version`
+  String get about_crocVersion {
+    return Intl.message(
+      'Croc Version',
+      name: 'about_crocVersion',
       desc: '',
       args: [],
     );
@@ -355,6 +365,36 @@ class S {
     return Intl.message(
       'Folder',
       name: 'select_folder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error`
+  String get error {
+    return Intl.message(
+      'Error',
+      name: 'error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Incomplete parameters`
+  String get error_incomplete {
+    return Intl.message(
+      'Incomplete parameters',
+      name: 'error_incomplete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OK`
+  String get ok {
+    return Intl.message(
+      'OK',
+      name: 'ok',
       desc: '',
       args: [],
     );

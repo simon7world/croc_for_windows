@@ -1,7 +1,7 @@
 {
   "send": "发送",
   "send_filePick": "选择文件/文件夹",
-  "send_code": "密码",
+  "send_code": "密码（可选）",
   "send_useDefaultCode": "使用默认密码",
   "send_sending": "发送",
   "send_openFolder": "打开文件夹",
@@ -12,7 +12,7 @@
   "receive_receiving": "接收",
   "receive_openFolder": "打开文件夹",
   "settings": "设置",
-  "settings_defaultCode": "默认密码",
+  "settings_defaultCode": "默认密码（≥6）",
   "settings_encryptionCurve": "加密曲线",
   "settings_relayServer": "中继服务器",
   "settings_primaryColor": "主色调",
@@ -21,7 +21,9 @@
   "about_author": "作者",
   "about_version": "版本号",
   "about_cfw": "CFW",
-  "about_c": "Croc",
+  "about_cfwVersion": "CFW Version",
+  "about_croc": "Croc",
+  "about_crocVersion": "Croc Version",
   "color_teal": "水鸭色",
   "color_blue": "蓝色",
   "color_red": "红色",
@@ -29,5 +31,8 @@
   "color_brown": "棕色",
   "color_purple": "紫色",
   "select_file": "文件",
-  "select_folder": "文件夹"
+  "select_folder": "文件夹",
+  "error": "错误",
+  "error_incomplete": "参数不完整",
+  "ok": "确定"
 }

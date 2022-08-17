@@ -27,7 +27,7 @@ class NavigationBox extends StatelessWidget {
             child: MoveWindow(
               child: const Align(
                 alignment: Alignment.center,
-                child: Text("$AppShortName v$AppVersion"),
+                child: Text("$AppShortName $AppVersion"),
               ),
             ),
           ),
@@ -65,10 +65,12 @@ class NavigationBox extends StatelessWidget {
 }
 
 class NavigationItem extends StatefulWidget {
-  const NavigationItem({Key? key, required this.label, required this.icon, this.onTap}) : super(key: key);
+  const NavigationItem({Key? key, required this.label, required this.icon, this.selected, this.onTap})
+      : super(key: key);
 
   final String label;
   final IconData icon;
+  final bool? selected;
   final GestureTapCallback? onTap;
 
   @override

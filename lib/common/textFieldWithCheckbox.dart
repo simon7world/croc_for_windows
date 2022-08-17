@@ -67,7 +67,7 @@ class WidgetTextFieldWithCheckbox extends StatelessWidget {
                       checkColor: Colors.white,
                       fillColor: MaterialStateProperty.resolveWith(_getColor),
                       value: checked,
-                      onChanged: (bool? value) {
+                      onChanged: (final bool? value) {
                         (checkedNotifier.value = value!) ? onCheck?.call(this) : onUncheck?.call(this);
                         Config.overwrite();
                       },

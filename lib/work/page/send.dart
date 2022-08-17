@@ -57,7 +57,7 @@ class SendPage extends StatelessWidget {
         const Logo(),
         PopupMenuButton<Select>(
           elevation: 9,
-          onSelected: (Select select) {
+          onSelected: (final Select select) {
             switch (select) {
               case Select.FILE:
                 _getFile();
@@ -92,6 +92,7 @@ class SendPage extends StatelessWidget {
           textLabel: S.of(context).send_code,
           checkboxLabel: S.of(context).send_useDefaultCode,
           onCheck: (w) => w.changeText(Settings.DefaultCodeTextEditingController.text),
+          onUncheck: (w) => w.changeText(""),
         ),
         SizedBox(
           width: 450,
@@ -100,7 +101,7 @@ class SendPage extends StatelessWidget {
             children: [
               ElevatedButton(
                 style: _buttonStyle,
-                onPressed: Send.sendFile,
+                onPressed: () => Send.sendFile(context),
                 child: Text(S.of(context).send_sending),
               ),
               ElevatedButton(
