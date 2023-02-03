@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
@@ -12,7 +13,7 @@ class Send {
 
   static final ValueNotifier<bool> DefaultCode = ValueNotifier(false);
 
-  static void sendFile(final BuildContext context) {
+  static void sendFile(final BuildContext context) async {
     print("sendFile");
 
     final List<String> args = [];
@@ -20,7 +21,7 @@ class Send {
     final relay = Settings.RelayServerTextEditingController.text;
     if (relay != "") {
       args.add("--relay");
-      args.add('"$relay"');
+      args.add(relay);
     }
 
     args.add("send");
@@ -28,20 +29,25 @@ class Send {
     final code = CodeTextEditingController.text;
     if (code != "") {
       args.add("--code");
-      args.add('"$code"');
+      args.add(code);
     }
 
-    final f = FilePickTextEditingController.text;
-    if (f == "") {
+    final file = FilePickTextEditingController.text;
+    if (file == "") {
       showError(context, S.of(context).error_incomplete);
 
       return;
     } else {
-      args.add('"$f"');
+      args.add(file);
     }
 
-    print(args);
-
-    // Process.run(crocExePath, args);
+    final p = await Process.start(crocExePath, args);
+    print("start");
+    p.stdout.transform(utf8.decoder).forEach((element) {
+      print("out $element");
+    });
+    p.stderr.transform(utf8.decoder).forEach((element) {
+      print("err $element");
+    });
   }
 }
