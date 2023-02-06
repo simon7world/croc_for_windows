@@ -1,7 +1,7 @@
 # Croc for Windows
 A Windows GUI based on Croc & Flutter
 
-* Flutter 3.0.5
+* Flutter 3.7.1
 
 Support OS
 
